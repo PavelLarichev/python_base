@@ -17,3 +17,5 @@ print("Рост отца -", my_family_height[0][1], "см")
 #   Общий рост моей семьи - ХХ см
 summary_height = my_family_height[0][1] + my_family_height[1][1] + my_family_height[2][1]
 print("Рост семьи -", summary_height, "см")
+
+#TODO или правильнее будет print("Рост семьи -", my_family_height[0][1] + my_family_height[1][1] + my_family_height[2][1], "см") ?
