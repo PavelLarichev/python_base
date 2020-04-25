@@ -23,7 +23,9 @@ violator_songs_list = [
 # Обратите внимание, что делать много вычислений внутри print() - плохой стиль.
 # Лучше заранее вычислить необходимое, а затем в print(xxx, yyy, zzz)
 
-three_songs_length = violator_songs_list[3][1] + violator_songs_list[5][1] + violator_songs_list[-1][1]
+three_songs_length = (violator_songs_list[3][1]
+                      + violator_songs_list[5][1]
+                      + violator_songs_list[-1][1])
 print("Три песни звучат", round(three_songs_length, 2), "минут")
 
 # Есть словарь песен группы Depeche Mode
@@ -43,6 +45,12 @@ violator_songs_dict = {
 # распечатайте общее время звучания трех песен: 'Sweetest Perfection', 'Policy of Truth' и 'Blue Dress'
 #   А другие три песни звучат ХХХ минут
 
-three_songs_dict = violator_songs_dict.get("Sweetest Perfection") + violator_songs_dict.get("Policy of Truth") + violator_songs_dict.get("Blue Dress")
-last_three_songs_dict = violator_songs_dict.get("World in My Eyes") + violator_songs_dict.get("Personal Jesus") + violator_songs_dict.get("Waiting for the Night")
+three_songs_dict = (violator_songs_dict.get("Sweetest Perfection")
+                    + violator_songs_dict.get("Policy of Truth")
+                    + violator_songs_dict.get("Blue Dress"))
+last_three_songs_dict = (violator_songs_dict.get("World in My Eyes")
+                         + violator_songs_dict.get("Personal Jesus")
+                         + violator_songs_dict.get("Waiting for the Night"))
 print("Другие три песни звуччат", round(three_songs_dict, 2), "минут", ", а оставшиеся три песни звучат", round(last_three_songs_dict, 2), "минут")
+
+# зачет!
