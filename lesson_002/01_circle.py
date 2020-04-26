@@ -26,7 +26,7 @@ point_1 = (23, 34)
 #       операции сравнения дают булевы константы True и False
 
 h1 = (23 ** 2 + 34 ** 2) ** .5
-print(h1 < radius)
+print(h1 <= radius)
 
 # Аналогично для другой точки
 point_2 = (30, 30)
@@ -34,8 +34,7 @@ point_2 = (30, 30)
 # Или False, если точка лежит вовне круга.
 
 h2 = (30 ** 2 + 30 ** 2) ** .5
-print(round(h2, 0) <= radius)
-#print(int(h2) <= radius)
+print(round(h2) <= radius)
 
 # Пример вывода на консоль:
 #
@@ -43,4 +42,4 @@ print(round(h2, 0) <= radius)
 # False
 # False
 
-
+# зачет!
