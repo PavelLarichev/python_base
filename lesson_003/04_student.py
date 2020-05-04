@@ -18,4 +18,4 @@ while count < 9:
     expenses += expenses / 100 * 3
     parents_loan += expenses - educational_grant
 else:
-    print("Студенту надо попросить", parents_loan, "рублей")
+    print("Студенту надо попросить", round(parents_loan, 2), "рублей")
