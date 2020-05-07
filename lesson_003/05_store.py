@@ -54,7 +54,38 @@ store = {
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
 
-# TODO здесь ваш код
+for item in goods.items():
+    print(item)
+lamp_cost = 0
+lamp_quantity = 0
+table_cost = 0
+table_quantity = 0
+sofa_cost = 0
+sofa_quantity = 0
+chair_cost = 0
+chair_quantity = 0
+
+for key, val in store.items():
+    if key == "12345":
+        lamp_quantity = val[0].get("quantity")
+        lamp_cost = val[0].get("quantity") * val[0].get("price")
+        print("Лампа -", lamp_quantity, "шт, стоимость", lamp_cost, "руб")
+        continue
+    if key == "23456":
+        table_quantity = val[0].get("quantity") + val[1].get("quantity")
+        table_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price")
+        print("Стол -", table_quantity, "шт, стоимость", table_cost, "руб")
+        continue
+    if key == "34567":
+        sofa_quantity = val[0].get("quantity") + val[1].get("quantity")
+        sofa_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price")
+        print("Диван -", sofa_quantity, "шт, стоимость", sofa_cost, "руб")
+        continue
+    if key == "45678":
+        chair_quantity = val[0].get("quantity") + val[1].get("quantity") + val[2].get("quantity")
+        chair_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price") + val[
+            2].get("quantity") * val[2].get("price")
+        print("Стул -", chair_quantity, "шт, стоимость", chair_cost, "руб")
 
 
 
