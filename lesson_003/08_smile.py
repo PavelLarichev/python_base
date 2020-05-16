@@ -20,7 +20,7 @@ def smile():
     sd.line(start_point=sd.get_point(x + 80, x + 75), end_point=sd.get_point(x + 120, x + 75))
 
 
-for _ in range(0, 10, 1):
+for _ in range(10):
     smile()
 
 sd.pause()
