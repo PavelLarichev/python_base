@@ -15,7 +15,9 @@ parents_loan = expenses - educational_grant
 count = 0
 while count < 9:
     count += 1
-    expenses += expenses / 100 * 3
+    expenses *= 1.03 # можно так
     parents_loan += expenses - educational_grant
 else:
     print("Студенту надо попросить", round(parents_loan, 2), "рублей")
+
+# зачет!

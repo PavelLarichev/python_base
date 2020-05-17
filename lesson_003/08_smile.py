@@ -24,3 +24,5 @@ for _ in range(10):
     smile()
 
 sd.pause()
+
+# зачет!
