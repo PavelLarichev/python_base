@@ -54,42 +54,17 @@ store = {
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
 
-for item in goods.items():
-    print(item)
-lamp_cost = 0
-lamp_quantity = 0
-table_cost = 0
-table_quantity = 0
-sofa_cost = 0
-sofa_quantity = 0
-chair_cost = 0
-chair_quantity = 0
-# TODO не совсем так, надо было держаться алгоритма, что описан.
-#  В цикле идти по goods, доставать код, потом по
-#  этому коду доставать записи из store. Далее итерироваться по записям,
-#  которые достали и вычислять сумму.
-for key, val in store.items():
-    if key == "12345":
-        lamp_quantity = val[0].get("quantity")
-        lamp_cost = val[0].get("quantity") * val[0].get("price")
-        print("Лампа -", lamp_quantity, "шт, стоимость", lamp_cost, "руб")
-        continue
-    if key == "23456":
-        table_quantity = val[0].get("quantity") + val[1].get("quantity")
-        table_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price")
-        print("Стол -", table_quantity, "шт, стоимость", table_cost, "руб")
-        continue
-    if key == "34567":
-        sofa_quantity = val[0].get("quantity") + val[1].get("quantity")
-        sofa_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price")
-        print("Диван -", sofa_quantity, "шт, стоимость", sofa_cost, "руб")
-        continue
-    if key == "45678":
-        chair_quantity = val[0].get("quantity") + val[1].get("quantity") + val[2].get("quantity")
-        chair_cost = val[0].get("quantity") * val[0].get("price") + val[1].get("quantity") * val[1].get("price") + val[
-            2].get("quantity") * val[2].get("price")
-        print("Стул -", chair_quantity, "шт, стоимость", chair_cost, "руб")
-
+for item in goods:
+    item_name = item
+    item_id = goods[item]
+    total_quantity = 0
+    total_price = 0
+    for i in store[item_id]:
+        item_quantity = i['quantity']
+        total_quantity += item_quantity
+        item_price = i['price'] * item_quantity
+        total_price += item_price
+    print(item_name, "- кол-во", total_quantity, "шт. Стоимость", total_price, "руб.")
 
 
 
