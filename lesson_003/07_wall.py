@@ -9,9 +9,9 @@ import simple_draw as sd
 step = 0
 for y in range(0, 1000, 50):
     y1 = y + 50
-    # TODO лучше, чтобы step тусовался туда-сюда, а не постоянно смещался влево, если стена слишком высокая,
-    #  то ты сильно уйдешь влево и будет много лишних вычислений.
     step -= 50
+    if step == - 100:
+        step = 0
     for x in range(step, 1000, 100):
         x1 = x + 100
         left_bottom = sd.get_point(x, y)
