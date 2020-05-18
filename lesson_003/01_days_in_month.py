@@ -10,34 +10,20 @@
 user_input = input("Введите, пожалуйста, номер месяца: ")
 month = int(user_input)
 print('Вы ввели', month)
-# TODO реализуй пожалуйста, следующим образом:
-#  Создай 3 кортежа, в которых будут храниться
-#  номера месяцев, в которых 28, 30 и 31 месяц
-#  соответственно, и потом введенное пользователем
-#  число проверяй на вхождение в эти кортежи.
-if month == 1:
-    print(31)
-elif month == 3:
-    print(31)
-elif month == 5:
-    print(31)
-elif month == 7:
-    print(31)
-elif month == 8:
-    print(31)
-elif month == 10:
-    print(31)
-elif month == 12:
-    print(31)
-elif month == 4:
-    print(30)
-elif month == 6:
-    print(30)
-elif month == 9:
-    print(30)
-elif month == 11:
-    print(30)
-elif month == 2:
-    print(28)
+
+
+more_days = (1, 3, 5, 7, 8, 10, 12)
+less_days = (4, 6, 9, 11)
+february = 2
+
+if month in more_days:
+    print("31")
+elif month in less_days:
+    print("30")
+elif month == february:
+    print("28")
 else:
     print("Номер месяца некорректен")
+
+#TODO с февралём лучше сделать так или
+# elif month == 2
