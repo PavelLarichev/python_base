@@ -11,7 +11,7 @@ rainbow_colors = (sd.COLOR_RED, sd.COLOR_ORANGE, sd.COLOR_YELLOW, sd.COLOR_GREEN
 x, y = 50, 50
 x1, y1 = 350, 450
 for color in rainbow_colors:
-    x += 5
+    x += 5 # TODO помести 5-ку в переменную, т.к. ты используешь её несколько раз, и в width можно тоже её присваивать
     x1 += 5
     sp = sd.get_point(x, y)
     ep = sd.get_point(x1, y1)
@@ -22,6 +22,5 @@ for color in rainbow_colors:
 # Усложненное задание, делать по желанию.
 # Нарисовать радугу дугами от окружности (cсм sd.circle) за нижним краем экрана,
 # поэкспериментировать с параметрами, что бы было красиво
-# TODO здесь ваш код
 
 sd.pause()

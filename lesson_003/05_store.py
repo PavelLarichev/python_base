@@ -64,7 +64,10 @@ sofa_cost = 0
 sofa_quantity = 0
 chair_cost = 0
 chair_quantity = 0
-
+# TODO не совсем так, надо было держаться алгоритма, что описан.
+#  В цикле идти по goods, доставать код, потом по
+#  этому коду доставать записи из store. Далее итерироваться по записям,
+#  которые достали и вычислять сумму.
 for key, val in store.items():
     if key == "12345":
         lamp_quantity = val[0].get("quantity")
