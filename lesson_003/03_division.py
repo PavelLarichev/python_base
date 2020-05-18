@@ -11,4 +11,10 @@
 
 a, b = 179, 37
 
-# TODO здесь ваш код
+counter = 0
+
+while a > b:
+    a -= b
+    counter += 1
+else:
+    print("Целочисленное деление 179 на 37 даёт", counter)
