@@ -53,19 +53,17 @@ store = {
 #         подсчет количества товара
 #         подсчет стоимости товара
 #     вывод на консоль количества и стоимости товара на складе
-# TODO странно, вроде писал использовать ф-ю goods.items(), ты получишь сразу и ключ и значение
-#  поправь пожалуйста, тогда потом не надо будет вызывать goods[item]
-for item in goods:
-    item_name = item
-    item_id = goods[item]
+
+
+for item in goods.items():
     total_quantity = 0
     total_price = 0
-    for i in store[item_id]:
+    for i in store[item[1]]:
         item_quantity = i['quantity']
         total_quantity += item_quantity
         item_price = i['price'] * item_quantity
         total_price += item_price
-    print(item_name, "- кол-во", total_quantity, "шт. Стоимость", total_price, "руб.")
+    print(item[0], "- кол-во", total_quantity, "шт. Стоимость", total_price, "руб.")
 
 
 
