@@ -60,7 +60,10 @@ def all_figures():
     pentagon(point=sd.get_point(200, 500), angle=41, length=100, color=color)
     hexagon(point=sd.get_point(600, 500), angle=88, length=100, color=color)
 
-
+# TODO ты можешь создать словарь более удобный,
+#  который бы содержал все необходимые данные, типа
+#  { 1: {'color_name': 'red', 'color_code': cd.COLOR_RED}, ...}
+#  Так ты сразу сможешь получить и номер и имя цвета и код
 color_dict = {'1': sd.COLOR_RED, '2': sd.COLOR_ORANGE, '3': sd.COLOR_YELLOW, '4': sd.COLOR_GREEN, '5': sd.COLOR_CYAN,
               '6': sd.COLOR_BLUE, '7': sd.COLOR_PURPLE}
 

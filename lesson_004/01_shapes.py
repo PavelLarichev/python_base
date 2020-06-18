@@ -76,7 +76,7 @@ def hexagon(point, angle, length):
 
 
 
-
+# TODO Сделай, чтобы ф-ия принимала кол-во углов, человек же вызывая ф-ию не должен высчитывать угол.
 triangle(point=sd.get_point(200, 200), angle=45, length=175)
 square(point=sd.get_point(550, 100), angle=62, length=150)
 pentagon(point=sd.get_point(200, 500), angle=41, length=100)
