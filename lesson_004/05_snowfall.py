@@ -9,7 +9,8 @@ import simple_draw as sd
 # - создать список рандомных длинн лучей снежинок (от 10 до 100) и пусть все снежинки будут разные
 
 N = 20
-
+x = list(range(100, 601, 25))
+y = 600
 # Пригодятся функции
 # sd.get_point()
 # sd.snowflake()
@@ -20,7 +21,11 @@ N = 20
 
 while True:
     sd.clear_screen()
-    # TODO здесь ваш код
+    for i in range(N):
+        sd.snowflake(center=sd.get_point(x[sd.random_number(0, 20)], y), length=sd.random_number(10, 100))
+        y -= 1
+        if y <= 50:
+            break
     sd.sleep(0.1)
     if sd.user_want_exit():
         break
