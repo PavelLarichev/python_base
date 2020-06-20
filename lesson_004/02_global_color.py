@@ -53,28 +53,41 @@ def hexagon(point, angle, length, color):
     sd.line(start_point=next_point, end_point=point, width=2, color=color)
 
 
+def figure(angle_number, point, length, color):
+    degree = 360 // angle_number
+    next_point = point
+    for degree in range(0, degree * angle_number, degree):
+        v1 = sd.get_vector(start_point=next_point, angle=degree, length=length, width=2)
+        v1.draw(color=color)
+        next_point = v1.end_point
+    sd.line(start_point=next_point, end_point=point, width=2, color=color)
+
+
 def all_figures():
     color = user_input()
-    triangle(point=sd.get_point(200, 200), angle=45, length=175, color=color)
-    square(point=sd.get_point(550, 100), angle=62, length=150, color=color)
-    pentagon(point=sd.get_point(200, 500), angle=41, length=100, color=color)
-    hexagon(point=sd.get_point(600, 500), angle=88, length=100, color=color)
+    figure(angle_number=3, point=sd.get_point(200, 200), length=175, color=color)
+    figure(angle_number=4, point=sd.get_point(550, 100), length=150, color=color)
+    figure(angle_number=5, point=sd.get_point(200, 500), length=100, color=color)
+    figure(angle_number=6, point=sd.get_point(600, 500), length=100, color=color)
 
-# TODO ты можешь создать словарь более удобный,
-#  который бы содержал все необходимые данные, типа
-#  { 1: {'color_name': 'red', 'color_code': cd.COLOR_RED}, ...}
-#  Так ты сразу сможешь получить и номер и имя цвета и код
-color_dict = {'1': sd.COLOR_RED, '2': sd.COLOR_ORANGE, '3': sd.COLOR_YELLOW, '4': sd.COLOR_GREEN, '5': sd.COLOR_CYAN,
-              '6': sd.COLOR_BLUE, '7': sd.COLOR_PURPLE}
+
+color_dict = {'1': {"color_name": "red", "color_code": sd.COLOR_RED},
+              '2': {"color_name": "orange", "color_code": sd.COLOR_ORANGE},
+              '3': {"color_name": "yellow", "color_code": sd.COLOR_YELLOW},
+              '4': {"color_name": "green", "color_code": sd.COLOR_GREEN},
+              '5': {"color_name": "cyan", "color_code": sd.COLOR_CYAN},
+              '6': {"color_name": "blue", "color_code": sd.COLOR_BLUE},
+              '7': {"color_name": "purple", "color_code": sd.COLOR_PURPLE}}
 
 
 def user_input():
-    print('Возможные цвета:\n1 : red \n2 : orange \n3 : yellow \n4 : green \n5 : '
-          'cyan \n6 : blue \n7 : purple\n')
+    print("Возможные цвета:")
+    for number, color in color_dict.items():
+        print(number, " - ", color["color_name"])
     while True:
         color = input('Введите желаемй цвет: ')
         if color in color_dict:
-            color = color_dict['{}'.format(color)]
+            color = color_dict[color]["color_code"]
             return color
         else:
             print('Вы ввели некорректный номер:')
