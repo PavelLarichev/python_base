@@ -75,12 +75,25 @@ def hexagon(point, angle, length):
     sd.line(start_point=next_point, end_point=point, width=2)
 
 
+def figure(angle_number, point, length):
+    degree = 360 // angle_number
+    next_point = point
+    for degree in range(0, degree * angle_number, degree):
+        v1 = sd.get_vector(start_point=next_point, angle=degree, length=length, width=2)
+        v1.draw()
+        next_point = v1.end_point
+    sd.line(start_point=next_point, end_point=point, width=2)
 
-# TODO Сделай, чтобы ф-ия принимала кол-во углов, человек же вызывая ф-ию не должен высчитывать угол.
-triangle(point=sd.get_point(200, 200), angle=45, length=175)
-square(point=sd.get_point(550, 100), angle=62, length=150)
-pentagon(point=sd.get_point(200, 500), angle=41, length=100)
-hexagon(point=sd.get_point(600, 500), angle=88, length=100)
+
+figure(angle_number=3, point=sd.get_point(200, 200), length=175)
+figure(angle_number=4, point=sd.get_point(550, 100), length=150)
+figure(angle_number=5, point=sd.get_point(200, 500), length=100)
+figure(angle_number=6, point=sd.get_point(600, 500), length=100)
+
+# triangle(point=sd.get_point(200, 200), angle=45, length=175)
+# square(point=sd.get_point(550, 100), angle=62, length=150)
+# pentagon(point=sd.get_point(200, 500), angle=41, length=100)
+# hexagon(point=sd.get_point(600, 500), angle=88, length=100)
 
 # Часть 1-бис.
 # Попробуйте прикинуть обьем работы, если нужно будет внести изменения в этот код.
