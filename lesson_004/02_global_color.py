@@ -17,40 +17,40 @@ import simple_draw as sd
 sd.resolution = 800, 800
 
 
-def triangle(point, angle, length, color):
-    next_point = point
-    for angle in range(angle, angle + 240, 120):
-        v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
-        v1.draw(color=color)
-        next_point = v1.end_point
-    sd.line(start_point=next_point, end_point=point, width=2, color=color)
-
-
-def square(point, angle, length, color):
-    next_point = point
-    for angle in range(angle, angle + 270, 90):
-        v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
-        v1.draw(color=color)
-        next_point = v1.end_point
-    sd.line(start_point=next_point, end_point=point, width=2, color=color)
-
-
-def pentagon(point, angle, length, color):
-    next_point = point
-    for angle in range(angle, angle + 288, 72):
-        v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
-        v1.draw(color=color)
-        next_point = v1.end_point
-    sd.line(start_point=next_point, end_point=point, width=2, color=color)
-
-
-def hexagon(point, angle, length, color):
-    next_point = point
-    for angle in range(angle, angle + 300, 60):
-        v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
-        v1.draw(color=color)
-        next_point = v1.end_point
-    sd.line(start_point=next_point, end_point=point, width=2, color=color)
+# def triangle(point, angle, length, color):
+#     next_point = point
+#     for angle in range(angle, angle + 240, 120):
+#         v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
+#         v1.draw(color=color)
+#         next_point = v1.end_point
+#     sd.line(start_point=next_point, end_point=point, width=2, color=color)
+#
+#
+# def square(point, angle, length, color):
+#     next_point = point
+#     for angle in range(angle, angle + 270, 90):
+#         v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
+#         v1.draw(color=color)
+#         next_point = v1.end_point
+#     sd.line(start_point=next_point, end_point=point, width=2, color=color)
+#
+#
+# def pentagon(point, angle, length, color):
+#     next_point = point
+#     for angle in range(angle, angle + 288, 72):
+#         v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
+#         v1.draw(color=color)
+#         next_point = v1.end_point
+#     sd.line(start_point=next_point, end_point=point, width=2, color=color)
+#
+#
+# def hexagon(point, angle, length, color):
+#     next_point = point
+#     for angle in range(angle, angle + 300, 60):
+#         v1 = sd.get_vector(start_point=next_point, angle=angle, length=length, width=2)
+#         v1.draw(color=color)
+#         next_point = v1.end_point
+#     sd.line(start_point=next_point, end_point=point, width=2, color=color)
 
 
 def figure(angle_number, point, length, color):
