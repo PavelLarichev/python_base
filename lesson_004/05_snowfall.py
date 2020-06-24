@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 
 import simple_draw as sd
-
+sd.resolution = (1100, 500)
 
 # На основе кода из практической части реализовать снегопад:
 # - создать списки данных для отрисовки N снежинок
@@ -9,10 +9,17 @@ import simple_draw as sd
 # - создать список рандомных длинн лучей снежинок (от 10 до 100) и пусть все снежинки будут разные
 
 N = 20
-# TODO просто х, может координаты_х?
-x = list(range(100, 601, 25))
-# TODO у каждой снежинки лучше сделать свою высоту, чтобы они могли падать с разной скоростью.
-y = 600
+x_list = []
+y_list = []
+length_list = []
+
+for _ in range(N):
+    x_num = sd.random_number(100, 900)
+    y_num = sd.random_number(550, 650)
+    length_num = sd.random_number(10, 100)
+    x_list.append(x_num)
+    y_list.append(y_num)
+    length_list.append(length_num)
 # Пригодятся функции
 # sd.get_point()
 # sd.snowflake()
@@ -22,16 +29,17 @@ y = 600
 
 
 while True:
-    sd.clear_screen()
+    # sd.clear_screen()
     for i in range(N):
-        # TODO что-то не правильно, надо брать координату по х и у, конкретной снежинки и её отрисовывть.
-        sd.snowflake(center=sd.get_point(x[sd.random_number(0, 20)], y), length=sd.random_number(10, 100))
-        y -= 1
-        if y <= 50:
-            # TODO этот break выходит из for, но while запускает его по новой, какой в этом смысл?
-            #  В итоге снежинки колбасит)
+        point = sd.get_point(x_list[i], y_list[i])
+        length = length_list[i]
+        sd.snowflake(center=point, length=length, color=sd.background_color)
+        y_list[i] -= 65
+        if y_list[i] <= 50:
             break
-    sd.sleep(0.1)
+        point1 = sd.get_point(x_list[i], y_list[i])
+        sd.snowflake(center=point1, length=length, color=sd.COLOR_WHITE)
+        sd.sleep(0.1)
     if sd.user_want_exit():
         break
 sd.pause()
