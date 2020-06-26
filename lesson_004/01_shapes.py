@@ -75,7 +75,7 @@ def hexagon(point, angle, length):
     sd.line(start_point=next_point, end_point=point, width=2)
 
 
-def figure(angle_number, point, length):
+def figure(angle_number, point, length):  # TODO не хватает общего поворота фигуры - angle
     degree = 360 // angle_number
     next_point = point
     for degree in range(0, degree * angle_number, degree):

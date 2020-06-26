@@ -82,3 +82,4 @@ def user_input():
 user_input()
 
 sd.pause()
+# Зачет!

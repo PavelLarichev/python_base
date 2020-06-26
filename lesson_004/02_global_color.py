@@ -97,3 +97,4 @@ def user_input():
 all_figures()
 
 sd.pause()
+# Зачет!
