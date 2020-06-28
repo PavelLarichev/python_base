@@ -120,3 +120,4 @@ figure(angle_number=6, point=sd.get_point(600, 500), length=100, angle=323)
 
 
 sd.pause()
+# Зачет!
