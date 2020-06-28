@@ -75,20 +75,20 @@ def hexagon(point, angle, length):
     sd.line(start_point=next_point, end_point=point, width=2)
 
 
-def figure(angle_number, point, length):  # TODO не хватает общего поворота фигуры - angle
+def figure(angle_number, point, length, angle):
     degree = 360 // angle_number
     next_point = point
-    for degree in range(0, degree * angle_number, degree):
+    for degree in range(0 - angle, 360 - angle, degree):
         v1 = sd.get_vector(start_point=next_point, angle=degree, length=length, width=2)
         v1.draw()
         next_point = v1.end_point
     sd.line(start_point=next_point, end_point=point, width=2)
 
 
-figure(angle_number=3, point=sd.get_point(200, 200), length=175)
-figure(angle_number=4, point=sd.get_point(550, 100), length=150)
-figure(angle_number=5, point=sd.get_point(200, 500), length=100)
-figure(angle_number=6, point=sd.get_point(600, 500), length=100)
+figure(angle_number=3, point=sd.get_point(200, 200), length=175, angle=58)
+figure(angle_number=4, point=sd.get_point(550, 250), length=150, angle=126)
+figure(angle_number=5, point=sd.get_point(200, 500), length=100, angle=221)
+figure(angle_number=6, point=sd.get_point(600, 500), length=100, angle=323)
 
 # triangle(point=sd.get_point(200, 200), angle=45, length=175)
 # square(point=sd.get_point(550, 100), angle=62, length=150)
