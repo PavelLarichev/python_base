@@ -15,4 +15,31 @@
 # Создать рецепт своего бургера, по вашему вкусу.
 # Если не хватает инградиентов - создать соответствующие функции в модуле my_burger
 
-# TODO здесь ваш код
+from my_burger import *
+
+def double_cheese():
+    bun()
+    chop()
+    cheese()
+    chop()
+    cheese()
+    pickle()
+    tomato()
+    bun()
+
+
+def bacon_onion():
+    bun()
+    chop()
+    cheese()
+    bacon()
+    onion()
+    pickle()
+    tomato()
+    bun()
+
+
+double_cheese()
+
+
+bacon_onion()
