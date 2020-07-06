@@ -8,3 +8,4 @@ from room_1 import folks as f1
 from room_2 import folks as f2
 print("В комнате room1 живут", f1)
 print("в комнате room_2 живут", f2)
+# Зачет!

@@ -20,7 +20,7 @@ symbol = ", "
 inhabitants = cent_h1_r1 + cent_h1_r2 + cent_h2_r1 + cent_h2_r2 + sov_h1_r1 + sov_h1_r2 + sov_h2_r1 + sov_h2_r2
 
 print("На районе живут", symbol.join(inhabitants))
-
+# Зачет!
 
 
 
