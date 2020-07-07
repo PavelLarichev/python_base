@@ -3,11 +3,11 @@ import simple_draw as sd
 sd.resolution = (1200, 1000)
 
 
-from lesson_005.landscape.house import wall, window, roof  # TODO lesson_005 не нужно
-from lesson_005.landscape.sky_objects import sun, rainbow
-from lesson_005.landscape.smile import smile
-from lesson_005.landscape.snow import snow
-from lesson_005.landscape.tree_ground import tree
+from landscape.house import wall, window, roof
+from landscape.sky_objects import sun, rainbow
+from landscape.smile import smile
+from landscape.snow import snow
+from landscape.tree_ground import tree
 
 
 # Создать пакет, в который скопировать функции отрисовки из предыдущего урока
