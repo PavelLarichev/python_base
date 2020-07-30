@@ -43,3 +43,12 @@
 # только с загаданным числом, а 01_mastermind - с пользователем и просто передает числа на проверку движку.
 # Это пример применения SOLID принципа (см https://goo.gl/GFMoaI) в архитектуре программ.
 # Точнее, в этом случае важен принцип единственной ответственности - https://goo.gl/rYb3hT
+
+
+from mastermind_engine import guess_number, predict
+
+
+guess_number()
+predict()
+
+

@@ -20,19 +20,58 @@ _holder = []
 
 def guess_number():
     global _holder
-    _holder = []
-    number_list = list(range(1, 9))
-    random.shuffle(number_list)
-    _holder.append(number_list[:4])
+    _holder = list(range(1, 9))
+    random.shuffle(_holder)
+    _holder = _holder[:4]
 
 
-def predict(number):
-    cows = 0
-    bulls = 0
-    for i in range(4):
-        if str(number[i]) == str(_holder[i]):
-            bulls += 1
-        elif (number[i]) in str(_holder):
-            cows += 1
-            return cows, bulls
+def predict():
+    counter = 0
+    while True:
+        number = list(input("Загадай число"))
+        if len(number) != 4:
+            print("Вы ввели неверное число")
+            continue
+        else:
+            is_unique(number)
+            cows = 0
+            bulls = 0
+            for i in range(len(_holder)):
+                if str(number[i]) == str(_holder[i]):
+                    bulls += 1
+                elif (number[i]) in str(_holder):
+                    cows += 1
+            counter += 1
+            print("количество коров:", cows, ", количество быков:", bulls)
+            if bulls == 4:
+                print("Вы выиграли! Колчиество ходов:", counter)
+                is_gameover()
+            else:
+                continue
+
+
+def is_unique(number):
+    while True:
+        number = number
+        setnumber = set(number)
+        if len(number) == len(setnumber) == 4:
+            return number
+        else:
+            print("Вы ввели неверное число,")
+            break
+
+
+def is_gameover():
+    import sys
+    while True:
+        new_game = input("Хотите начать новую игру? y/n")
+        if new_game == "y":
+            guess_number()
+            predict()
+        elif new_game == "n":
+            print("Игра окончена")
+            sys.exit()
+        else:
+            print("Введена неверная команда")
+            continue
 
