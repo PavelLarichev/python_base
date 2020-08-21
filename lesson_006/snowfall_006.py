@@ -47,6 +47,6 @@ def draw_snowflake():
             break
 
 
-create_snowflakes()
+create_snowflakes()  # TODO здесь только определение функций, все вызовы в основном коде
 draw_snowflake()
 sd.pause()

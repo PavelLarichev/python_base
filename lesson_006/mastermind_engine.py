@@ -20,7 +20,7 @@ _holder = []
 
 def guess_number():
     global _holder
-    _holder = list(range(1, 9))
+    _holder = list(range(1, 9))  # TODO 0 можно, но не в начале, да и 9 тоже
     random.shuffle(_holder)
     _holder = _holder[:4]
 
