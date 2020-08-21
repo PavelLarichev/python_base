@@ -2,6 +2,8 @@
 
 import simple_draw as sd
 
+
+from snowfall_006 import draw_snowflake, create_snowflakes
 # На основе кода из lesson_004/05_snowfall.py
 # сделать модуль snowfall.py в котором реализовать следующие функции
 #  создать_снежинки(N) - создает N снежинок
@@ -15,15 +17,17 @@ import simple_draw as sd
 # обращаясь ТОЛЬКО к функциям модуля snowfall
 
 # создать_снежинки(N)
-while True:
-    #  нарисовать_снежинки_цветом(color=sd.background_color)
-    #  сдвинуть_снежинки()
-    #  нарисовать_снежинки_цветом(color)
-    #  если есть номера_достигших_низа_экрана() то
-    #       удалить_снежинки(номера)
-    #       создать_снежинки(count)
-    sd.sleep(0.1)
-    if sd.user_want_exit():
-        break
+# while True:
+#     #  нарисовать_снежинки_цветом(color=sd.background_color)
+#     #  сдвинуть_снежинки()
+#     #  нарисовать_снежинки_цветом(color)
+#     #  если есть номера_достигших_низа_экрана() то
+#     #       удалить_снежинки(номера)
+#     #       создать_снежинки(count)
+#     sd.sleep(0.1)
+#     if sd.user_want_exit():
+#         break
 
+create_snowflakes()
+draw_snowflake()
 sd.pause()
