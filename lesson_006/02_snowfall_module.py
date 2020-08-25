@@ -31,3 +31,4 @@ from snowfall_006 import draw_snowflake, create_snowflakes
 create_snowflakes()
 draw_snowflake()
 sd.pause()
+# Зачет!
