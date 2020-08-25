@@ -20,9 +20,12 @@ _holder = []
 
 def guess_number():
     global _holder
-    _holder = list(range(1, 9))  # TODO 0 можно, но не в начале, да и 9 тоже
+    _holder = list(range(0, 10))
     random.shuffle(_holder)
-    _holder = _holder[:4]
+    if _holder[0] == 0:
+        guess_number()
+    else:
+        _holder = _holder[:4]
 
 
 def predict():

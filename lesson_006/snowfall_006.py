@@ -45,8 +45,3 @@ def draw_snowflake():
             sd.sleep(0.01)
         if sd.user_want_exit():
             break
-
-
-create_snowflakes()  # TODO здесь только определение функций, все вызовы в основном коде
-draw_snowflake()
-sd.pause()
