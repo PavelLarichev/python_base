@@ -83,6 +83,8 @@ class Man:
             self.work()
         elif self.house.catfood < 20:
             self.feed_cat()
+        elif self.house.dirt > 200:
+            self.clean_house()
         elif dice == 1:
             self.work()
         elif dice == 2:
@@ -99,10 +101,12 @@ class Man:
             cprint('{} деньги кончились!'.format(self.name), color='red')
 
     def clean_house(self):
-        if self.house.dirt >= 200:
+        if self.fullness >= 30:
             cprint('{} убрался в доме'.format(self.name), color='magenta')
             self.house.dirt -= 100
             self.fullness -= 20
+        else:
+            cprint("{} устал!".format(self.name), color="red")
 
     def pick_up_cat(self, cat):
         cat.house = self.house
