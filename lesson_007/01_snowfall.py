@@ -25,7 +25,7 @@ class Snowflake:
         self.y -= self.speed
 
     def can_fall(self):
-        if self.y <= 20:  # TODO self.y <= 20 уже бул
+        if self.y <= self.length:
             return True
 
 
