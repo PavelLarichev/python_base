@@ -25,9 +25,7 @@ class Snowflake:
         self.y -= self.speed
 
     def can_fall(self):
-        if self.y <= self.length:
-            return True
-
+        return self.y <= self.length
 
 flake = Snowflake()
 
@@ -79,3 +77,4 @@ while True:
         break
 
 sd.pause()
+# Зачет!
