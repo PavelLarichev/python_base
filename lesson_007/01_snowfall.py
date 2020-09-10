@@ -25,7 +25,7 @@ class Snowflake:
         self.y -= self.speed
 
     def can_fall(self):
-        if self.y <= 20:
+        if self.y <= 20:  # TODO self.y <= 20 уже бул
             return True
 
 
@@ -39,7 +39,8 @@ def get_flakes():
     return snowflakes
 
 
-def get_fallen_flakes(snowflakes):
+def get_fallen_flakes():
+    snowflakes = []
     for i in range(0, len(flakes)):
         if flake.can_fall():
             snowflakes.append(i)
@@ -70,7 +71,7 @@ while True:
         if not flake.can_fall():
             flake.move()
         flake.draw(sd.COLOR_WHITE)
-    fallen_flakes = get_fallen_flakes(snowflakes=[])  # подчитать сколько снежинок уже упало
+    fallen_flakes = get_fallen_flakes()  # подчитать сколько снежинок уже упало
     if fallen_flakes:
         append_flakes(fallen_flakes)  # добавить еще сверху
     sd.sleep(0.1)
