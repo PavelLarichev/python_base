@@ -88,13 +88,13 @@ class Man:
 class Husband(Man):
     earned_money = 0
 
-    def __init__(self, name):
+    def __init__(self, name):  # TODO зачем тогда?
         super().__init__(name=name)
 
-    def __str__(self):
+    def __str__(self): # TODO зачем тогда?
         return super().__str__()
 
-    def act(self):
+    def act(self):  # TODO общую логику для всех людей есть смысл перенести в базовый act
         if self.fullness <= 0:
             cprint('{} умер...'.format(self.name), color='red')
             return
