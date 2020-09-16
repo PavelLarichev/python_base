@@ -48,6 +48,7 @@ class House:
         self.money = 100
         self.food = 50
         self.dirt = 0
+        self.catfood = 0
 
     def __str__(self):
         return 'В доме еды осталось {}, денег осталось {}, уровень грязи {}'.format(
