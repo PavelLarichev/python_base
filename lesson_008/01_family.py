@@ -84,34 +84,33 @@ class Man:
         if self.house.dirt > 90:
             self.happiness -= 10
 
-
-class Husband(Man):
-    earned_money = 0
-
-    def __init__(self, name):  # TODO зачем тогда?
-        super().__init__(name=name)
-
-    def __str__(self): # TODO зачем тогда?
-        return super().__str__()
-
-    def act(self):  # TODO общую логику для всех людей есть смысл перенести в базовый act
+    def act(self):
         if self.fullness <= 0:
             cprint('{} умер...'.format(self.name), color='red')
             return
         elif self.happiness <= 10:
             cprint('{} умер от депрессии...'.format(self.name), color='red')
             return
-        dice = randint(1, 4)
         if self.fullness < 30:
             self.eat()
-        elif self.house.money < 50:
-            self.work()
-        elif dice == 1:
-            self.work()
-        elif dice == 2:
-            self.eat()
-        else:
-            self.gaming()
+            return False
+        return True
+
+
+class Husband(Man):
+    earned_money = 0
+
+    def act(self):
+        if super().act():
+            dice = randint(1, 4)
+            if self.house.money < 50:
+                self.work()
+            elif dice == 1:
+                self.work()
+            elif dice == 2:
+                self.eat()
+            else:
+                self.gaming()
 
     def work(self):
         cprint('{} сходил на работу'.format(self.name), color='blue')
@@ -128,30 +127,17 @@ class Husband(Man):
 class Wife(Man):
     fur_coats_bought = 0
 
-    def __init__(self, name):
-        super().__init__(name=name)
-
-    def __str__(self):
-        return super().__str__()
-
     def act(self):
-        if self.fullness <= 0:
-            cprint('{} умерла...'.format(self.name), color='red')
-            return
-        elif self.happiness <= 10:
-            cprint('{} умерла от депрессии...'.format(self.name), color='red')
-            return
-        dice = randint(1, 4)
-        if self.fullness < 30:
-            self.eat()
-        elif self.house.food < 50:
-            self.shopping()
-        elif dice == 1:
-            self.buy_fur_coat()
-        elif dice == 2:
-            self.eat()
-        else:
-            self.clean_house()
+        if super().act():
+            dice = randint(1, 4)
+            if self.house.food < 50:
+                self.shopping()
+            elif dice == 1:
+                self.buy_fur_coat()
+            elif dice == 2:
+                self.eat()
+            else:
+                self.clean_house()
 
     def shopping(self):
         self.fullness -= 10
