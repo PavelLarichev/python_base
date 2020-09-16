@@ -254,7 +254,7 @@ class Child(Man):
         else:
             self.sleep()
 
-    def eat(self):
+    def eat(self):  # TODO  дублирование кода, можно завести атрибут - макс кол-во еды в день
         if self.house.food > 10:
             self.fullness += 10
             Man.total_fullness += 10
