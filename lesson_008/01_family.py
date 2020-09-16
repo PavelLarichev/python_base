@@ -80,10 +80,6 @@ class Man:
         self.fullness -= 10
         cprint('Я {}, теперь у меня есть дом'.format(self.name), color='cyan')
 
-    def is_clean(self):  # TODO можно перенести в act
-        if self.house.dirt > 90:
-            self.happiness -= 10
-
     def act(self):
         if self.fullness <= 0:
             cprint('{} умер...'.format(self.name), color='red')
@@ -91,6 +87,8 @@ class Man:
         elif self.happiness <= 10:
             cprint('{} умер от депрессии...'.format(self.name), color='red')
             return False
+        if self.house.dirt > 90:
+            self.happiness -= 10
         if self.fullness < 30:
             self.eat()
             return False
@@ -177,8 +175,6 @@ for inhabitant in inhabitants:
 for day in range(365):
     cprint('================== День {} =================='.format(day), color='red')
     home.dirt += 5
-    serge.is_clean()
-    masha.is_clean()
     serge.act()
     masha.act()
     cprint(serge, color='cyan')
