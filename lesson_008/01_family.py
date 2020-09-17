@@ -57,11 +57,12 @@ class House:
 class Man:
     total_fullness = 0
 
-    def __init__(self, name, house=None):
+    def __init__(self, name, house=None, stomach_capacity=30):
         self.name = name
         self.fullness = 30
         self.happiness = 100
         self.house = house
+        self.stomach_capacity = stomach_capacity
 
     def __str__(self):
         return 'Я {}, мой уровень счастья {}, мой уровень сытости {}'.format(
@@ -69,8 +70,8 @@ class Man:
 
     def eat(self):
         if self.house.food > 30:
-            self.fullness += 30
-            Man.total_fullness += 30
+            self.fullness += self.stomach_capacity
+            Man.total_fullness += self.stomach_capacity
             print('{} поел'.format(self.name))
         else:
             cprint('{} нет еды'.format(self.name), color='red')
@@ -241,9 +242,10 @@ class Cat:
 
 class Child(Man):
 
-    def __init__(self, name):
+    def __init__(self, name, stomach_capacity=10):
         super().__init__(name=name)
-        self.fullness = 100
+        self.happiness = 100
+        self.stomach_capacity = stomach_capacity
 
     def act(self):
         if self.fullness <= 0:
@@ -253,14 +255,6 @@ class Child(Man):
             self.eat()
         else:
             self.sleep()
-
-    def eat(self):  # TODO  дублирование кода, можно завести атрибут - макс кол-во еды в день
-        if self.house.food > 10:
-            self.fullness += 10
-            Man.total_fullness += 10
-            print('{} поел'.format(self.name))
-        else:
-            cprint('{} нет еды'.format(self.name), color='red')
 
     def sleep(self):
         cprint('{} спал целый день'.format(self.name), color='green')
