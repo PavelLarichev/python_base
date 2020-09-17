@@ -69,9 +69,11 @@ class Man:
             self.name, self.happiness, self.fullness)
 
     def eat(self):
-        if self.house.food > 30:
+        if self.house.food > self.stomach_capacity:
             self.fullness += self.stomach_capacity
             Man.total_fullness += self.stomach_capacity
+            self.house.food -= self.stomach_capacity   # TODO раньше у вас еда не тратилась, что не верно,
+            # теперь люди умирают - нужно выправить ситуацию
             print('{} поел'.format(self.name))
         else:
             cprint('{} нет еды'.format(self.name), color='red')
