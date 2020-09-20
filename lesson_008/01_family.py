@@ -58,20 +58,23 @@ class House:
 class Man:
     total_fullness = 0
 
-    def __init__(self, name, house=None):
+    def __init__(self, name, house=None, stomach_capacity=30):
         self.name = name
         self.fullness = 30
         self.happiness = 100
         self.house = house
+        self.stomach_capacity = stomach_capacity
 
     def __str__(self):
         return 'Я {}, мой уровень счастья {}, мой уровень сытости {}'.format(
             self.name, self.happiness, self.fullness)
 
     def eat(self):
-        if self.house.food > 30:
-            self.fullness += 30
-            Man.total_fullness += 30
+        if self.house.food > self.stomach_capacity:
+            self.fullness += self.stomach_capacity
+            Man.total_fullness += self.stomach_capacity
+            self.house.food -= self.stomach_capacity   # TODO раньше у вас еда не тратилась, что не верно,
+            # теперь люди умирают - нужно выправить ситуацию
             print('{} поел'.format(self.name))
         else:
             cprint('{} нет еды'.format(self.name), color='red')
@@ -283,22 +286,25 @@ class Cat:
 # отличия от взрослых - кушает максимум 10 единиц еды,
 # степень счастья  - не меняется, всегда ==100 ;)
 
-class Child:
+class Child(Man):
 
-    def __init__(self):
-        pass
-
-    def __str__(self):
-        return super().__str__()
+    def __init__(self, name, stomach_capacity=10):
+        super().__init__(name=name)
+        self.happiness = 100
+        self.stomach_capacity = stomach_capacity
 
     def act(self):
-        pass
-
-    def eat(self):
-        pass
+        if self.fullness <= 0:
+            cprint('{} умер...'.format(self.name), color='red')
+            return
+        if self.fullness < 20:
+            self.eat()
+        else:
+            self.sleep()
 
     def sleep(self):
-        pass
+        cprint('{} спал целый день'.format(self.name), color='green')
+        self.fullness -= 10
 
 
 # TODO после реализации второй части - отдать на проверку учителем две ветки
