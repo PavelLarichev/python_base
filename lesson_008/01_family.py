@@ -59,7 +59,7 @@ class Man:
 
     def __init__(self, name, house=None, stomach_capacity=30):
         self.name = name
-        self.fullness = 30
+        self.fullness = 40
         self.happiness = 100
         self.house = house
         self.stomach_capacity = stomach_capacity
@@ -72,8 +72,7 @@ class Man:
         if self.house.food > self.stomach_capacity:
             self.fullness += self.stomach_capacity
             Man.total_fullness += self.stomach_capacity
-            self.house.food -= self.stomach_capacity   # TODO раньше у вас еда не тратилась, что не верно,
-            # теперь люди умирают - нужно выправить ситуацию
+            self.house.food -= self.stomach_capacity
             print('{} поел'.format(self.name))
         else:
             cprint('{} нет еды'.format(self.name), color='red')
@@ -102,16 +101,17 @@ class Husband(Man):
     earned_money = 0
 
     def act(self):
-        if super().act():
-            dice = randint(1, 4)
-            if self.house.money < 50:
-                self.work()
-            elif dice == 1:
-                self.work()
-            elif dice == 2:
-                self.eat()
-            else:
-                self.gaming()
+        if self.house.money < 100:
+            self.work()
+        else:
+            if super().act():
+                dice = randint(1, 4)
+                if dice == 1:
+                    self.work()
+                elif dice == 2:
+                    self.eat()
+                else:
+                    self.gaming()
 
     def work(self):
         cprint('{} сходил на работу'.format(self.name), color='blue')
@@ -129,23 +129,24 @@ class Wife(Man):
     fur_coats_bought = 0
 
     def act(self):
-        if super().act():
-            dice = randint(1, 4)
-            if self.house.food < 50:
-                self.shopping()
-            elif dice == 1:
-                self.buy_fur_coat()
-            elif dice == 2:
-                self.eat()
-            else:
-                self.clean_house()
+        if self.house.food < 30:
+            self.shopping()
+        else:
+            if super().act():
+                dice = randint(1, 4)
+                if dice == 1:
+                    self.buy_fur_coat()
+                elif dice == 2:
+                    self.eat()
+                else:
+                    self.clean_house()
 
     def shopping(self):
         self.fullness -= 10
-        if self.house.money >= 50:
+        if self.house.money >= 75:
             cprint('{} сходила в магазин за едой'.format(self.name), color='magenta')
-            self.house.money -= 50
-            self.house.food += 50
+            self.house.money -= 75
+            self.house.food += 75
         else:
             cprint('{} деньги кончились!'.format(self.name), color='red')
 
