@@ -48,6 +48,7 @@ class House:
         self.money = 100
         self.food = 50
         self.dirt = 0
+        self.catfood = 30
 
     def __str__(self):
         return 'В доме еды осталось {}, денег осталось {}, уровень грязи {}'.format(
@@ -59,7 +60,7 @@ class Man:
 
     def __init__(self, name, house=None, stomach_capacity=30):
         self.name = name
-        self.fullness = 40
+        self.fullness = 30
         self.happiness = 100
         self.house = house
         self.stomach_capacity = stomach_capacity
@@ -81,6 +82,10 @@ class Man:
         self.house = house
         self.fullness -= 10
         cprint('Я {}, теперь у меня есть дом'.format(self.name), color='cyan')
+
+    def pet_the_cat(self):
+        self.happiness += 5
+        self.fullness -= 10
 
     def act(self):
         if self.fullness <= 0:
@@ -110,6 +115,8 @@ class Husband(Man):
                     self.work()
                 elif dice == 2:
                     self.eat()
+                elif dice == 3:
+                    self.pet_the_cat()
                 else:
                     self.gaming()
 
@@ -138,15 +145,17 @@ class Wife(Man):
                     self.buy_fur_coat()
                 elif dice == 2:
                     self.eat()
+                elif dice == 3:
+                    self.pet_the_cat()
                 else:
                     self.clean_house()
 
     def shopping(self):
         self.fullness -= 10
-        if self.house.money >= 75:
+        if self.house.money >= 50:
             cprint('{} сходила в магазин за едой'.format(self.name), color='magenta')
-            self.house.money -= 75
-            self.house.food += 75
+            self.house.money -= 50
+            self.house.food += 50
         else:
             cprint('{} деньги кончились!'.format(self.name), color='red')
 
@@ -215,21 +224,52 @@ cprint('Всего куплено шуб {}'.format(Wife.fur_coats_bought), colo
 
 
 class Cat:
+    total_fullness = 0
 
-    def __init__(self):
-        pass
+    def __init__(self, name, house=None):
+        self.name = name
+        self.fullness = 30
+        self.house = house
+
+    def __str__(self):
+        return 'Я {}, мой уровень сытости {}'.format(
+            self.name, self.fullness)
 
     def act(self):
-        pass
+        if self.fullness <= 0:
+            cprint('{} умер...'.format(self.name), color='red')
+            return False
+        if self.fullness < 20:
+            self.eat()
+        dice = randint(1, 4)
+        if dice == 1:
+            self.soil()
+        elif dice == 2:
+            self.eat()
+        else:
+            self.sleep()
 
     def eat(self):
-        pass
+        if self.house.catfoodfood > 10:
+            self.fullness += 20
+            Cat.total_fullness += 30
+            print('{} поел'.format(self.name))
+        else:
+            cprint('{} нет еды'.format(self.name), color='red')
 
     def sleep(self):
-        pass
+        cprint('{} спал весь день'.format(self.name), color='green')
+        self.fullness -= 10
 
     def soil(self):
-        pass
+        cprint('{} драл обои'.format(self.name), color='green')
+        self.fullness -= 10
+        self.house.dirt += 5
+
+    def go_to_the_house(self, house):
+        self.house = house
+        self.fullness -= 10
+        cprint('Я {}, теперь у меня есть дом'.format(self.name), color='cyan')
 
 
 ######################################################## Часть вторая бис
