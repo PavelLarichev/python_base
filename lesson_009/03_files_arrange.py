@@ -60,7 +60,7 @@ class FileSorter:
 
     def make_dirs(self, dir=None):
         if not os.path.exists(dir):
-            os.makedirs(dir)
+            os.makedirs(dir)  # TODO exist_ok есть параметр
 
     def copy_file(self, src=None, dst=None):
         if not os.path.exists(dst):

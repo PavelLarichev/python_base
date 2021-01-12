@@ -92,10 +92,10 @@ class CharStat:
 
     def find_file(self, name):
         for filename in self.zfile.namelist():
-            if name == filename:
+            if name == filename:  # TODO масло масленное name == filename уже бул
                 return True
             else:
-                return False
+                return False  # TODO почему сразу False, не нужно все проверить?
 
     def get_stat(self):
         if self.is_data_ready:
