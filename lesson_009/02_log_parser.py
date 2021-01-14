@@ -55,9 +55,16 @@ class LogParser:
                     self.log_stat[dt] = self.log_stat.setdefault(dt, 0) + 1
 
     def write(self):
-        with open(file=self.file_out, mode='a', encoding='utf8') as file:  # TODO каждый раз открывать файл накладно, лучше один раз
-            for date, count in self.log_stat.items():
-                file.write(f'{date} {count} \n')
+        file = open(self.file_out, mode='a', encoding='utf8')
+        for date, count in self.log_stat.items():
+            file.write(f'{date} {count} \n')
+        file.close()
+
+
+    # def write(self):
+    #     with open(file=self.file_out, mode='a', encoding='utf8') as file:
+    #         for date, count in self.log_stat.items():
+    #             file.write(f'{date} {count} \n')
 
 
 if __name__ == '__main__':
