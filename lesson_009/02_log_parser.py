@@ -44,7 +44,7 @@ class LogParser:
         return dt, res
 
     def parse(self):
-        with open(self.file_in, 'r') as file:
+        with open(self.file_in, 'r') as file:  # TODO есть смысл открыть все файлы здесь один раз
             for line in file:
                 dt, res = self.line_parsing(line)
                 res = res.replace('\n', '')
@@ -55,7 +55,7 @@ class LogParser:
                     self.log_stat[dt] = self.log_stat.setdefault(dt, 0) + 1
 
     def write(self):
-        file = open(self.file_out, mode='a', encoding='utf8')
+        file = open(self.file_out, mode='a', encoding='utf8')  # TODO with
         for date, count in self.log_stat.items():
             file.write(f'{date} {count} \n')
         file.close()
