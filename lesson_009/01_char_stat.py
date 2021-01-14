@@ -91,11 +91,12 @@ class CharStat:
         return False
 
     def find_file(self, name):
-        for filename in self.zfile.namelist():
-            if name == filename:  # TODO масло масленное name == filename уже бул
-                return True
-            else:
-                return False  # TODO почему сразу False, не нужно все проверить?
+        if os.path.exists(name):
+           print("Файл найден")
+        else:
+           print("Нет такого файла, смотрите здесь", os.walk(name))
+
+
 
     def get_stat(self):
         if self.is_data_ready:
@@ -156,6 +157,7 @@ if __name__ == '__main__':
 
     # war_and_peace.unzip()
     war_and_peace.print_stat()
+
 
 # После зачета первого этапа нужно сделать упорядочивание статистики
 #  - по частоте по возрастанию
